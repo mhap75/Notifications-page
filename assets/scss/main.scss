@@ -1,0 +1,213 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;800&display=swap");
+
+// Colors
+$primary-red: hsl(1, 90%, 64%);
+$primary-blue: hsl(219, 85%, 26%);
+$natural-white: hsl(0, 0%, 100%);
+$natural-very-light-grayish-blue: hsl(210, 60%, 98%);
+$natural-light-grayish-blue: hsl(211, 68%, 94%);
+$natural-light-grayish-blue2: hsl(205, 33%, 90%);
+$natural-grayish-blue: hsl(219, 14%, 63%);
+$natural-dark-grayish-blue: hsl(219, 12%, 42%);
+$natural-very-dark-blue: hsl(224, 21%, 14%);
+
+// Sizes
+$font-size-base: 16px;
+$padding-base: 1rem;
+$border-radius-base: 10px;
+$box-shadow-base: 0px 0px 25px 10px rgba(225, 225, 225, 0.2);
+
+// Utilities and Reset
+.d-flex {
+    display: flex;
+}
+
+.jc-space-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.align-it-center {
+    display: flex;
+    align-items: center;
+}
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+// Common classes
+
+body {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-weight: 500;
+    background-color: $natural-very-light-grayish-blue;
+    font-size: $font-size-base;
+    color: $natural-very-dark-blue;
+    min-height: 100dvh;
+    padding-bottom: 1rem;
+}
+
+.container {
+    margin-top: 1rem !important;
+    width: 95dvw;
+    max-width: 750px;
+    margin: 0 auto;
+    background-color: $natural-white;
+    padding: 1.5rem;
+    border-radius: $border-radius-base;
+    box-shadow: 0px 0px 25px 10px rgba(225, 225, 225, 0.2);
+}
+
+h1 {
+    font-size: 1.4rem;
+}
+
+h3 {
+    font-size: 1rem;
+    display: inline-block;
+    &.username a {
+        color: inherit;
+    }
+}
+
+header {
+    margin-bottom: 1rem;
+}
+
+.time {
+    color: $natural-grayish-blue;
+}
+
+.mark-all-read-btn {
+    border: none;
+    background-color: transparent;
+    color: $natural-dark-grayish-blue;
+    font-family: inherit;
+    cursor: pointer;
+    &:hover {
+        color: $primary-blue;
+    }
+}
+
+span {
+    margin-inline-start: 5px;
+}
+
+.notif-count {
+    background-color: $primary-blue;
+    color: $natural-white;
+    font-size: 1.1rem;
+    padding: 2px 10px;
+    vertical-align: top;
+    font-weight: initial;
+    border-radius: 5px;
+}
+
+.event {
+    color: $natural-dark-grayish-blue;
+    &-target {
+        font-weight: 800;
+        color: $natural-dark-grayish-blue;
+    }
+}
+
+a {
+    color: $natural-dark-grayish-blue;
+    &:hover,
+    &:hover * {
+        color: $primary-blue !important;
+    }
+}
+
+li {
+    padding: 1em;
+    margin-block: 0.5rem;
+    border-radius: 7px;
+    display: flex;
+    &.unread {
+        background-color: $natural-light-grayish-blue;
+        a * {
+            color: $primary-blue;
+        }
+
+        span:where(:nth-last-child(2), :only-child)::after {
+            content: "";
+            background-color: $primary-red;
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-inline: 0.3rem;
+        }
+    }
+    &::before {
+        content: "";
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: contain;
+        height: 40px;
+        aspect-ratio: 1;
+        display: inline-block;
+        margin-inline-end: 0.8rem;
+    }
+    &:nth-child(1)::before {
+        background-image: url("../images/avatar-mark-webber.webp");
+    }
+    &:nth-child(2)::before {
+        background-image: url("../images/avatar-angela-gray.webp");
+    }
+    &:nth-child(3)::before {
+        background-image: url("../images/avatar-jacob-thompson.webp");
+    }
+    &:nth-child(4)::before {
+        background-image: url("../images/avatar-rizky-hasanuddin.webp");
+    }
+    &:nth-child(5)::before {
+        background-image: url("../images/avatar-kimberly-smith.webp");
+    }
+    &:nth-child(6)::before {
+        background-image: url("../images/avatar-nathan-peterson.webp");
+    }
+    &:nth-child(7)::before {
+        background-image: url("../images/avatar-anna-kim.webp");
+    }
+}
+
+li:has(img) {
+    a {
+        margin-left: auto;
+    }
+    img {
+        max-width: 50px;
+    }
+}
+
+.message {
+    border: 1px solid $natural-light-grayish-blue2;
+    padding: 0.8em;
+    border-radius: 5px;
+    margin-top: 1rem;
+    p {
+        color: $natural-dark-grayish-blue;
+    }
+    &:hover {
+        background-color: $natural-light-grayish-blue2;
+    }
+}
